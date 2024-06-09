@@ -7,9 +7,26 @@ import SuggestionList from './SuggestionList';
 import ProductList from './ProductList';
 import SelectedProduct from './SelectedProduct';
 
+const ProductsContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+
+  @media (min-width: 1200px) {
+  
+     
+  }
+`;
+const SearchLabel = styled.label`
+  font-size: 22px;
+  margin-bottom: 10px;
+  padding-right: 3cm;
+  font-family: 'Helvetica Neue', sans-serif;
+`;
+
 const SearchBarContainer = styled.div`
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   position: relative;
@@ -17,15 +34,13 @@ const SearchBarContainer = styled.div`
 
 const ProductsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 20px;
-  width: 100%;
-  max-width: none; /* Odstraníme max-width */
   justify-content: center;
+  width: 100%;
 
-  @media (min-width: 1200px) {
-    /* Pro obrazovky větší než 1200px bude řazení pěti karet vedle sebe */
-    grid-template-columns: repeat(5, 1fr);
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr); /* Na mobilech bude pouze jeden sloupec */
   }
 `;
 const SearchBar = () => {
@@ -41,6 +56,7 @@ const SearchBar = () => {
 
   return (
     <SearchBarContainer>
+    <SearchLabel>Vyhledávání produktů</SearchLabel>
       <div>
         <SearchInput
           searchTerm={searchTerm}
@@ -55,7 +71,7 @@ const SearchBar = () => {
           />
         )}
       </div>
-
+    <ProductsContainer>
       {searchResults.length > 0 ? (
        <ProductsGrid>
         <ProductList products={searchResults} />
@@ -63,6 +79,7 @@ const SearchBar = () => {
       ) : selectedProduct ? (
         <SelectedProduct product={selectedProduct} />
       ) : null}
+      </ProductsContainer>
     </SearchBarContainer>
   );
 };

@@ -7,7 +7,6 @@ function App() {
   return (
     <SearchProvider>
       <div>
-        <h1>Vyhledávání produktů</h1>
         <SearchBar products={products} />
       </div>
     </SearchProvider>

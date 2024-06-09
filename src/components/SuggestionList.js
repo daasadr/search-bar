@@ -5,15 +5,15 @@ const SuggestionsContainer = styled.div`
   position: absolute;
   background-color: white;
   border: 1px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   max-height: 200px;
   overflow-y: auto;
   z-index: 1;
-  left: 0;
-  right: 0;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  margin-top: -10px;
+  left: 45%;
+  transform: translateX(-45%);
+  border-radius: 4px;
+  margin-top: 4px;
+  width:280px;
 `;
 
 const SuggestionItem = styled.div`

@@ -5,9 +5,9 @@ const ProductCardContainer = styled.div`
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 10px;
-  max-width: 250px; /* Změna maximální šířky */
-  width: 100%; /* Přidáno pro zajištění stejné šířky */
-  height: 350px; /* Přidáno pro zajištění stejné výšky */
+  max-width: 250px;
+  width: 100%;
+  height: 350px;
   margin: 10px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -15,6 +15,11 @@ const ProductCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 768px) {
+    max-width: 250px; 
+    height: auto; /* Na mobilech budou karty mít automatickou výšku */
+  }
 
   &:hover {
     transform: translateY(-5px);

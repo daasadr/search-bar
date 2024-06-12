@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSearchContext } from '../SearchContext';
 
 const ConfirmButton = styled.button`
   background-color: #4caf50;
@@ -20,7 +21,13 @@ const ConfirmButton = styled.button`
   }
 `;
 
-const SearchButton = ({ handleSearchConfirm }) => {
+const SearchButton = () => {
+
+
+  
+const {
+  handleSearchConfirm,
+} = useSearchContext();
   return <ConfirmButton onClick={handleSearchConfirm}>Potvrdit</ConfirmButton>;
 };
 

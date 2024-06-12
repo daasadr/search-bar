@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import SuggestionItem from './SuggestionItem'
+
+import { useSearchContext } from '../SearchContext';
 
 const SuggestionsContainer = styled.div`
   position: absolute;
@@ -16,28 +19,22 @@ const SuggestionsContainer = styled.div`
   width:280px;
 `;
 
-const SuggestionItem = styled.div`
-  padding: 8px 12px;
-  cursor: pointer;
-  color: #333;
-  transition: background-color 0.2s;
 
-  &:hover {
-    background-color: #f0f0f0;
-  }
-`;
 
-const SuggestionList = ({ suggestions, handleSuggestionClick }) => {
+const SuggestionList = () => {
+
+  const {
+    suggestions,
+  } = useSearchContext();
+
   return (
     <SuggestionsContainer>
-      {suggestions.map((suggestion) => (
+      {suggestions.map((suggestion) => 
         <SuggestionItem
           key={suggestion.id}
-          onClick={() => handleSuggestionClick(suggestion)}
-        >
-          {suggestion.name}
-        </SuggestionItem>
-      ))}
+          suggestion={suggestion}
+          />
+        )}
     </SuggestionsContainer>
   );
 };

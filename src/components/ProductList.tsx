@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ProductCard from './ProductCard';
+import { useSearchContext } from './SearchContext';
 
 const ProductListContainer = styled.div`
   display: grid;
@@ -24,12 +25,17 @@ const ProductListContainer = styled.div`
   }
 `;
 
-const ProductList = ({ products }) => {
+const ProductList = () => {
+
+  const {
+    selectedProduct,
+  } = useSearchContext();
+
+  if(!selectedProduct) return null;
+
   return (
     <ProductListContainer>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+        <ProductCard product={selectedProduct} />
     </ProductListContainer>
   );
 };

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import { useSearchContext } from '../SearchContext';
 
 const StyledInput = styled.input`
   padding: 0.8em 1em;
   margin: 0;
-  color: ${(props) => props.inputColor || 'palevioletred'};
+  color: palevioletred;
   background: white;
   border: 3px solid #7FDBFF;
   border-radius: 4px;
@@ -21,14 +22,25 @@ const StyledInput = styled.input`
 
 
 
-const SearchInput = ({ searchTerm, handleSearch, handleSearchConfirm }) => {
+const SearchInput = () => {
+
+  const {
+    searchTerm,
+    handleSearchSuggestions,
+    handleSearchConfirm,
+  } = useSearchContext();
+
+  const onEnter = useCallback((event: React.KeyboardEvent) => 
+    event.key === 'Enter' && handleSearchConfirm()
+  , [handleSearchConfirm])
+  
   return (
     <StyledInput
       type="text"
       placeholder="Vyhledat produkt..."
       value={searchTerm}
-      onChange={(e) => handleSearch(e.target.value)}
-      onKeyDown={(e) => e.key === 'Enter' && handleSearchConfirm()}
+      onChange={handleSearchSuggestions}
+      onKeyDown={onEnter}
     />
   );
 };

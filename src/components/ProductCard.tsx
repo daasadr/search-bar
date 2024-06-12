@@ -34,7 +34,11 @@ const ProductImage = styled.img`
   margin-top: 10px;
 `;
 
-const ProductCard = ({ product }) => {
+interface ProductCardProps {
+  product: Product;
+}
+
+const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <ProductCardContainer>
       <h4>{product.name}</h4>

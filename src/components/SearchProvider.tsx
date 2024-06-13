@@ -1,71 +1,78 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { SearchContext } from './SearchContext';
-import { useQuery } from '@tanstack/react-query'
-
+import React, { useState, useEffect, useCallback } from "react";
+import { SearchContext } from "./SearchContext";
+import { useQuery } from "@tanstack/react-query";
 
 interface FilterProductsProps {
   products: Product[];
   searchTerm: string;
 }
 
-const filterProducts = ({ products,searchTerm }: FilterProductsProps): Product[] => {
-  
+const filterProducts = ({
+  products,
+  searchTerm,
+}: FilterProductsProps): Product[] => {
   const loweredSearchTerm = searchTerm.toLowerCase();
 
   return products.filter((product) =>
-  product.name.toLowerCase().includes(loweredSearchTerm)
-)};
+    product.name.toLowerCase().includes(loweredSearchTerm),
+  );
+};
 
 interface SearchProviderProps {
   children: React.ReactNode;
 }
 
-const DATA_URL = '/products.json';
+const DATA_URL = "/products.json";
 
-const productsFetcher = () => fetch(DATA_URL).then(response => response.json())
-
+const productsFetcher = () =>
+  fetch(DATA_URL).then((response) => response.json());
 
 export const SearchProvider = ({ children }: SearchProviderProps) => {
-  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [suggestions, setSuggestions] = useState<Product[]>([]);
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  const { data: products, error } = useQuery({ queryKey: [DATA_URL], queryFn: productsFetcher })
+  const { data: products, error } = useQuery({
+    queryKey: [DATA_URL],
+    queryFn: productsFetcher,
+  });
 
   useEffect(() => {
-    console.error('Shit happens')
-  }, [error])
+    console.error("Shit happens");
+  }, [error]);
 
-  const handleSearchSuggestions = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    const term = (event.target as HTMLInputElement).value;
-    setSearchTerm(term);
-  },[])
+  const handleSearchSuggestions = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const term = (event.target as HTMLInputElement).value;
+      setSearchTerm(term);
+    },
+    [],
+  );
 
   useEffect(() => {
-    if(searchTerm) {
-    const filteredItems = filterProducts({ products, searchTerm })
-    setSuggestions(filteredItems)
-  }
-  }, [products,  searchTerm])
+    if (searchTerm) {
+      const filteredItems = filterProducts({ products, searchTerm });
+      setSuggestions(filteredItems);
+    }
+  }, [products, searchTerm]);
 
   const handleSearchConfirm = useCallback(() => {
-    if (searchTerm.trim() === '') return;
+    if (searchTerm.trim() === "") return;
 
     const filteredProducts = filterProducts({ products, searchTerm });
     setSearchResults(filteredProducts);
     setSuggestions([]);
     setSelectedProduct(null);
-    setSearchTerm('');
-  
-  },[searchTerm, products]);
+    setSearchTerm("");
+  }, [searchTerm, products]);
 
   const handleSuggestionClick = useCallback((suggestion: Product) => {
     setSelectedProduct(suggestion);
     setSearchResults([suggestion]);
     setSuggestions([]);
-    setSearchTerm('');
-  },[])
+    setSearchTerm("");
+  }, []);
 
   const contextValue = {
     products,
@@ -85,4 +92,4 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
   );
 };
 
-export default SearchProvider
+export default SearchProvider;

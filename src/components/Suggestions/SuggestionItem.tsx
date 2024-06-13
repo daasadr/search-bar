@@ -1,8 +1,7 @@
-import React, { useCallback } from "react"
-import styled from 'styled-components';
+import React, { useCallback } from "react";
+import styled from "styled-components";
 
-import { useSearchContext } from '../SearchContext';
-
+import { useSearchContext } from "../SearchContext";
 
 const ItemWrapper = styled.div`
   padding: 8px 12px;
@@ -20,21 +19,14 @@ interface SuggestionItemProps {
 }
 
 const SuggestionItem = ({ suggestion }: SuggestionItemProps) => {
+  const { handleSuggestionClick } = useSearchContext();
 
-    const {
-        handleSuggestionClick,
-      } = useSearchContext();
-    
+  const onItemClick = useCallback(
+    () => handleSuggestionClick(suggestion),
+    [suggestion],
+  );
 
-    const onItemClick = useCallback(() => handleSuggestionClick(suggestion), [suggestion])
-
-    return (
-        <ItemWrapper
-          onClick={onItemClick}
-        >
-          {suggestion.name}
-        </ItemWrapper>
-    )
-}
+  return <ItemWrapper onClick={onItemClick}>{suggestion.name}</ItemWrapper>;
+};
 
 export default SuggestionItem;

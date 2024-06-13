@@ -1,26 +1,25 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext } from "react";
 
 interface CreateContextType {
-    products: Product[];
-    searchTerm: string;
-    suggestions: Product[];
-    selectedProduct: Product | null;
-    searchResults: Product[];
-    handleSearchSuggestions: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    handleSearchConfirm: () => void;
-    handleSuggestionClick: (suggestion: Product) => void;
+  products: Product[];
+  searchTerm: string;
+  suggestions: Product[];
+  selectedProduct: Product | null;
+  searchResults: Product[];
+  handleSearchSuggestions: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSearchConfirm: () => void;
+  handleSuggestionClick: (suggestion: Product) => void;
 }
 
 const defaultValue: CreateContextType = {
-    products: [],
-    searchTerm: '',
-    suggestions: [],
-    selectedProduct: null,
-    searchResults: [],
-    handleSearchSuggestions: () => {},
-    handleSearchConfirm: () => {},
-    handleSuggestionClick: () => {},
-
+  products: [],
+  searchTerm: "",
+  suggestions: [],
+  selectedProduct: null,
+  searchResults: [],
+  handleSearchSuggestions: () => {},
+  handleSearchConfirm: () => {},
+  handleSuggestionClick: () => {},
 };
 
 export const SearchContext = createContext(defaultValue);

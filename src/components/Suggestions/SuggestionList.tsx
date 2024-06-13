@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import SuggestionItem from './SuggestionItem'
+import React from "react";
+import styled from "styled-components";
+import SuggestionItem from "./SuggestionItem";
 
-import { useSearchContext } from '../SearchContext';
+import { useSearchContext } from "../SearchContext";
 
 const SuggestionsContainer = styled.div`
   position: absolute;
@@ -13,28 +13,20 @@ const SuggestionsContainer = styled.div`
   overflow-y: auto;
   z-index: 1;
   left: 45%;
-  transform: translateX(-45%);
+  transform: translateX(-50%);
   border-radius: 4px;
-  margin-top: 4px;
-  width:280px;
+  margin-top: 0;
+  width: 280px;
 `;
 
-
-
 const SuggestionList = () => {
-
-  const {
-    suggestions,
-  } = useSearchContext();
+  const { suggestions } = useSearchContext();
 
   return (
     <SuggestionsContainer>
-      {suggestions.map((suggestion) => 
-        <SuggestionItem
-          key={suggestion.id}
-          suggestion={suggestion}
-          />
-        )}
+      {suggestions.map((suggestion) => (
+        <SuggestionItem key={suggestion.id} suggestion={suggestion} />
+      ))}
     </SuggestionsContainer>
   );
 };

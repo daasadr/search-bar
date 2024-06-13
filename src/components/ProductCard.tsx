@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const ProductCardContainer = styled.div`
   border: 1px solid #ccc;
@@ -17,7 +17,7 @@ const ProductCardContainer = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-    max-width: 250px; 
+    max-width: 250px;
     height: auto; /* Na mobilech budou karty mít automatickou výšku */
   }
 

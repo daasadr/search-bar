@@ -1,14 +1,11 @@
-import React from 'react';
-import ProductCard from './ProductCard';
-import { useSearchContext } from './SearchContext';
+import React from "react";
+import ProductCard from "./ProductCard";
+import { useSearchContext } from "./SearchContext";
 
 const SelectedProduct = () => {
+  const { selectedProduct } = useSearchContext();
 
-  const {
-    selectedProduct,
-  } = useSearchContext();
-
-  if(!selectedProduct) return null;
+  if (!selectedProduct) return null;
 
   return (
     <div>

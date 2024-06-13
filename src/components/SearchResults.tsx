@@ -1,21 +1,17 @@
+import React, { useContext } from "react";
 
-import React, { useContext } from 'react';
+import { useSearchContext } from "./SearchContext";
+import styled from "styled-components";
 
-import { useSearchContext } from './SearchContext';
-import styled from 'styled-components';
-
-import ProductList from './ProductList';
-import SelectedProduct from './SelectedProduct';
+import ProductList from "./ProductList";
+import SelectedProduct from "./SelectedProduct";
 
 const ProductsContainer = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
+  width: 100%;
+  display: flex;
+  justify-content: center;
 
   @media (min-width: 1200px) {
-  
-     
   }
 `;
 
@@ -27,30 +23,27 @@ const ProductsGrid = styled.div`
   width: 100%;
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(1, 1fr); /* Na mobilech bude pouze jeden sloupec */
+    grid-template-columns: repeat(
+      1,
+      1fr
+    ); /* Na mobilech bude pouze jeden sloupec */
   }
 `;
 
-
 const SearchResults = () => {
+  const { selectedProduct, searchResults } = useSearchContext();
 
-const {
-  selectedProduct,
-  searchResults,
-} = useSearchContext();
-
-return (
-
-<ProductsContainer>
+  return (
+    <ProductsContainer>
       {searchResults.length > 0 ? (
-       <ProductsGrid>
-        <ProductList  />
-        </ProductsGrid>  
+        <ProductsGrid>
+          <ProductList />
+        </ProductsGrid>
       ) : selectedProduct ? (
-        <SelectedProduct  />
+        <SelectedProduct />
       ) : null}
-      </ProductsContainer>
-)}
-
+    </ProductsContainer>
+  );
+};
 
 export default SearchResults;

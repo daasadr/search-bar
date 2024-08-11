@@ -68,6 +68,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
   }, [searchTerm, products]);
 
   const handleSuggestionClick = useCallback((suggestion: Product) => {
+    console.log('Setting selected product:', suggestion.name);
     setSelectedProduct(suggestion);
     setSearchResults([suggestion]);
     setSuggestions([]);

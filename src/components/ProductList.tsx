@@ -29,7 +29,7 @@ const ProductList = () => {
   if (!searchResults.length) return null;
 
   return (
-    <ProductListContainer>
+    <ProductListContainer data-testid="product-list">
       {searchResults.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

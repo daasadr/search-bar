@@ -23,7 +23,7 @@ const ConfirmButton = styled.button`
 
 const SearchButton = () => {
   const { handleSearchConfirm } = useSearchContext();
-  return <ConfirmButton onClick={handleSearchConfirm}>Potvrdit</ConfirmButton>;
+  return <ConfirmButton data-testid="search-button" onClick={handleSearchConfirm}>Potvrdit</ConfirmButton>;
 };
 
 export default SearchButton;

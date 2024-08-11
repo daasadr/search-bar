@@ -21,12 +21,12 @@ interface SuggestionItemProps {
 const SuggestionItem = ({ suggestion }: SuggestionItemProps) => {
   const { handleSuggestionClick } = useSearchContext();
 
-  const onItemClick = useCallback(
-    () => handleSuggestionClick(suggestion),
-    [suggestion],
-  );
+ const onItemClick = useCallback(() => {
+    console.log('Suggestion clicked:', suggestion.name); // Přidejte tento log
+    handleSuggestionClick(suggestion);
+  }, [suggestion, handleSuggestionClick]);
 
-  return <ItemWrapper onClick={onItemClick}>{suggestion.name}</ItemWrapper>;
+  return <ItemWrapper data-testid="suggestion-item" onClick={onItemClick}>{suggestion.name}</ItemWrapper>;
 };
 
 export default SuggestionItem;

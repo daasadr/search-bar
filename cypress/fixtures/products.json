@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Růžové koťátko",
+    "description": "Úplně nejlepší růžové koťátko na světě.",
+    "imageURL": "image/Kitty.webp"
+  },
+  {
+    "id": 2,
+    "name": "Zelený slon",
+    "description": "Must have",
+    "imageURL": "image/Elephant.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Modro-zelený tygr",
+    "description": "Už jste někdy viděli něco tak skvělého?",
+    "imageURL": "image/Tiger.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Hnědá srna",
+    "description": "Skutečný unikát",
+    "imageURL": "image/Doe.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Modrý bagr",
+    "description": "Proč ne",
+    "imageURL": "image/Bagr.webp"
+  },
+  {
+    "id": 6,
+    "name": "Svítící Ovce",
+    "description": "Vzácná rarita",
+    "imageURL": "image/Sheep1.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Oranžová želva",
+    "description": "Minimálně po pěti",
+    "imageURL": "image/Turtle.webp"
+  },
+  {
+    "id": 8,
+    "name": "Bílý hroch",
+    "description": "Nevídané",
+    "imageURL": "image/Hippo.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Žlutá volavka",
+    "description": "O té ještě uslyšíte",
+    "imageURL": "image/Heron.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Khaki pelikán",
+    "description": "Zajímavost do každé domácnosti",
+    "imageURL": "image/Pelican.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Hnědý psík",
+    "description": "Obyčejný ale milý",
+    "imageURL": "image/Dog.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Zlatý krokodýl",
+    "description": "Mega",
+    "imageURL": "image/Croco.webp"
+  },
+  {
+    "id": 13,
+    "name": "Béžový netvor",
+    "description": "Z pohádky kráska a zvíře",
+    "imageURL": "image/Monster.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Červené vznášedlo",
+    "description": "Pro větší nadhled",
+    "imageURL": "image/Hovercraft.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Okurkový král",
+    "description": "Vládce našich záhonů",
+    "imageURL": "image/kral.webp"
+  },
+  {
+    "id": 16,
+    "name": "Tyrkysový šimpanz",
+    "description": "2 + 2 ZDARMA",
+    "imageURL": "image/Chimpanzee.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Šedé prasátko",
+    "description": "Takové jinde nenajdete",
+    "imageURL": "image/Piggy.webp"
+  },
+  {
+    "id": 18,
+    "name": "Černý plameňák",
+    "description": "Dodáváme pouze v sadě \"Prazvláštní věci a zvířata\"",
+    "imageURL": "image/Flamingo.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Pestrá sada",
+    "description": "Sada obsahuje: Šedé prasátko, Modrý bagr, Khaki pelikána, Červené vznášedlo a Černého plameňáka",
+    "imageURL": "image/Collection.png"
+  },
+  {
+    "id": 20,
+    "name": "Vitrínka na Vaši sbírku",
+    "description": "Nechcete aby se Vám na ně prášilo",
+    "imageURL": "image/Vitrine.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Žluté auto",
+    "description": "Bestseller",
+    "imageURL": "image/Car.webp"
+  },
+  {
+    "id": 22,
+    "name": "Stříbrný kůň",
+    "description": "Vánoční hit",
+    "imageURL": "image/Horse.webp"
+  }
+]

@@ -23,7 +23,7 @@ const SuggestionList = () => {
   const { suggestions } = useSearchContext();
 
   return (
-    <SuggestionsContainer>
+    <SuggestionsContainer data-testid="suggestions-container">
       {suggestions.map((suggestion) => (
         <SuggestionItem key={suggestion.id} suggestion={suggestion} />
       ))}

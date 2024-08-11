@@ -31,7 +31,7 @@ const SearchInput = () => {
     );
 
   return (
-    <StyledInput
+    <StyledInput data-testid="search-input"
       type="text"
       placeholder="Vyhledat produkt..."
       value={searchTerm}

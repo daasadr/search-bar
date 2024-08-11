@@ -31,17 +31,17 @@ const ProductsGrid = styled.div`
 `;
 
 const SearchResults = () => {
-  const { selectedProduct, searchResults } = useSearchContext();
+  const { selectedProduct, searchResults, } = useSearchContext();
 
-  return (
+return (
     <ProductsContainer>
-      {searchResults.length > 0 ? (
+      {selectedProduct ? (
+        <SelectedProduct />
+      ) : (
         <ProductsGrid>
           <ProductList />
         </ProductsGrid>
-      ) : selectedProduct ? (
-        <SelectedProduct />
-      ) : null}
+      )}
     </ProductsContainer>
   );
 };

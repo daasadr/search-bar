@@ -9,6 +9,7 @@ interface CreateContextType {
   handleSearchSuggestions: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleSearchConfirm: () => void;
   handleSuggestionClick: (suggestion: Product) => void;
+  noResults: boolean;
 }
 
 const defaultValue: CreateContextType = {
@@ -17,9 +18,10 @@ const defaultValue: CreateContextType = {
   suggestions: [],
   selectedProduct: null,
   searchResults: [],
-  handleSearchSuggestions: () => {},
-  handleSearchConfirm: () => {},
-  handleSuggestionClick: () => {},
+  handleSearchSuggestions: () => { },
+  handleSearchConfirm: () => { },
+  handleSuggestionClick: () => { },
+  noResults: false,
 };
 
 export const SearchContext = createContext(defaultValue);

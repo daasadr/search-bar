@@ -22,17 +22,24 @@ const ProductListContainer = styled.div`
     margin: 30px;
   }
 `;
-
+const NoResultsMessage = styled.div`
+  text-align: center;
+  font-size: 18px;
+  grid-column: 1 / -1;
+`;
 const ProductList = () => {
-  const { searchResults } = useSearchContext();
+  const { searchResults, noResults } = useSearchContext();
 
-  if (!searchResults.length) return null;
 
   return (
     <ProductListContainer data-testid="product-list">
-      {searchResults.map((product) => (
+      {noResults ? (
+        <NoResultsMessage>Produkt nenalezen</NoResultsMessage>
+      ) : (
+        searchResults.map((product) => (
         <ProductCard key={product.id} product={product} />
-      ))}
+      ))
+      )}
     </ProductListContainer>
   );
 };

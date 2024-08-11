@@ -57,11 +57,14 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
     }
   }, [products, searchTerm]);
 
+  const [noResults, setNoResults] = useState<boolean>(false);
+
   const handleSearchConfirm = useCallback(() => {
     if (searchTerm.trim() === "") return;
 
     const filteredProducts = filterProducts({ products, searchTerm });
     setSearchResults(filteredProducts);
+    setNoResults(filteredProducts.length === 0);
     setSuggestions([]);
     setSelectedProduct(null);
     setSearchTerm("");
@@ -84,6 +87,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
     handleSearchSuggestions,
     handleSuggestionClick,
     handleSearchConfirm,
+    noResults,
   };
 
   return (
